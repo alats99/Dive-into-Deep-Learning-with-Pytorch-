@@ -46,9 +46,10 @@ def export_to_readme(results, filename="README.md"):
     name = results[0]['name']
     custom_time = [r['time'] for r in results if r['type'] == 'Custom'][0]
     pytorch_time = [r['time'] for r in results if r['type'] == 'PyTorch'][0]
+    magnitude_diff = custom_time / pytorch_time
     
-    header = "## Benchmark results:\n| Act Fn | Custom (ms) | PyTorch (ms) |\n| :--- | :--- | :--- |\n"
-    new_row = f"| {name} | {custom_time:.6f} | {pytorch_time:.6f} |\n"
+    header = "## Benchmark results:\n| Act Fn | Custom (ms) | PyTorch (ms) | Magnitude Diff |\n| :--- | :--- | :--- | :--- |\n"
+    new_row = f"| {name} | {custom_time:.6f} | {pytorch_time:.6f} | {magnitude_diff:.2f}x |\n"
     
     if not os.path.exists(filename):
         with open(filename, "w") as f:
@@ -69,10 +70,9 @@ def export_to_readme(results, filename="README.md"):
                     break
             new_content = "\n".join(lines)
         else:
-            # Table exists, just append the row
+
             new_content = content.strip() + "\n" + new_row
     else:
-        # Add the whole section
         new_content = content.strip() + "\n\n" + header + new_row
 
     with open(filename, "w") as f:

@@ -76,18 +76,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Compare custom activation functions with PyTorch built-ins.")
     parser.add_argument(
         "--act_fn",
-        default = "Sigmoid",
+        nargs="+",
+        default = ["Sigmoid"],
         type=str, 
         required=False,
-        help="The name of the class in activation_fn_library (Case Sensitive, e.g., Sigmoid)"
+        help="One or more class names from activation_fn_library (Case Sensitive, e.g., Sigmoid Softmax)"
     )
     
     args = parser.parse_args()
     
-    try:
-        cls = getattr(lib, args.act_fn)
-        selected_fn = cls()
-        main(selected_fn)
-    except AttributeError:
-        print(f"Error: Class '{args.act_fn}' not found in activation_fn_library.py")
-        print("Available classes are:", [name for name in dir(lib) if not name.startswith("__")]) # reject the dunder names,
+    for fn_name in args.act_fn:
+        try:
+            cls = getattr(lib, fn_name)
+            selected_fn = cls()
+            main(selected_fn)
+        except AttributeError:
+            print(f"Error: Class '{fn_name}' not found in activation_fn_library.py")
+            print("Available classes are:", [name for name in dir(lib) if not name.startswith("__")])

@@ -22,7 +22,7 @@ python main.py --act_fn Softmax
 - Verification: Automatic speed benchmarking and accuracy checks.
 
 ## Benchmark results:
-| Act Fn | Custom (ms) | PyTorch (ms) |
-| :--- | :--- | :--- |
-| Sigmoid | 0.133350 | 0.047236 |
-| Softmax | 0.083846 | 0.028065 |
+| Act Fn | Custom (ms) | PyTorch (ms) | Magnitude Diff |
+| :--- | :--- | :--- | :--- |
+| Sigmoid | 0.136843 | 0.028988 | 4.72x |
+| Softmax | 0.070143 | 0.025287 | 2.77x |

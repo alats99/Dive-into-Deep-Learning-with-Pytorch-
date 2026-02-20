@@ -1,0 +1,15 @@
+torch
+torchvision
+torchaudio
+
+numpy
+
+matplotlib
+seaborn
+
+jupyter
+notebook
+
+tqdm
+scikit-learn
+pandas

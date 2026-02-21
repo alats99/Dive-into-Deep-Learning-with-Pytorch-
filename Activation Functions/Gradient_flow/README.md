@@ -10,19 +10,6 @@ The goal of this investigation is to understand how different activation functio
 - Dead neurons (common in ReLU networks)
 - Stable gradient flow (aim of modern activations like Swish and ELU)
 
-## Phillip Lippe's Tutorial Comparison
-
-This work is inspired by **Phillip Lippe's Tutorial 3: Activation Functions and Gradient Flow** from the [UvA Deep Learning Tutorials](https://uvadlc-notebooks.readthedocs.io/en/latest/).
-
-Citation:
-```bibtex
-@misc{lippe2024uvadlc,
-   title        = {{UvA Deep Learning Tutorials}},
-   author       = {Phillip Lippe},
-   year         = 2024,
-   howpublished = {\url{https://uvadlc-notebooks.readthedocs.io/en/latest/}}
-}
-```
 
 ## Activation Functions Covered
 
@@ -116,3 +103,18 @@ The analysis reveals how different initializations impact gradient propagation.
 | Hardswish | 8.28e-10 (-9.1) | 5.06e-10 (-9.3) | 5.07e-10 (-9.3) | Healthy |
 | Sine | 2.79e-04 (-3.6) | 1.65e-04 (-3.8) | 1.68e-04 (-3.8) | Healthy |
 <!-- TABLE_ORTHOGONAL -->
+
+
+## Acknowledgement
+
+This work is inspired by **Phillip Lippe's Tutorial 3: Activation Functions and Gradient Flow** from the [UvA Deep Learning Tutorials](https://uvadlc-notebooks.readthedocs.io/en/latest/).
+
+Citation:
+```bibtex
+@misc{lippe2024uvadlc,
+   title        = {{UvA Deep Learning Tutorials}},
+   author       = {Phillip Lippe},
+   year         = 2024,
+   howpublished = {\url{https://uvadlc-notebooks.readthedocs.io/en/latest/}}
+}
+```
